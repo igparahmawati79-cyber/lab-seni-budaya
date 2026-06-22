@@ -1,0 +1,2155 @@
+<!DOCTYPE html>
+<html lang="id" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab Maya Unsur Rupa - Fase F SMA (Assets Folder Edition)</title>
+  
+  <style>
+    /* ----------------------------------------------------
+       OFFLINE MODERN CSS DESIGN TOKENS & SYSTEM FONTS
+       ---------------------------------------------------- */
+    :root {
+      --bg-slate-950: #020617;
+      --bg-slate-900: #0f172a;
+      --bg-slate-800: #1e293b;
+      --bg-slate-700: #334155;
+      --text-slate-100: #f1f5f9;
+      --text-slate-300: #cbd5e1;
+      --text-slate-400: #94a3b8;
+      --text-slate-500: #64748b;
+      --color-indigo: #6366f1;
+      --color-indigo-hover: #4f46e5;
+      --color-purple: #a855f7;
+      --color-pink: #ec4899;
+      --color-amber: #f59e0b;
+      --color-emerald: #10b981;
+      --color-rose: #f43f5e;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg-slate-950);
+      color: var(--text-slate-100);
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 12px;
+    }
+
+    /* 16:9 Aspect Ratio Container */
+    .app-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      max-width: 1920px;
+      max-height: 1080px;
+      aspect-ratio: 16 / 9;
+      background-color: var(--bg-slate-900);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 1rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Header styling */
+    header {
+      height: 10%;
+      background-color: rgba(2, 6, 23, 0.85);
+      border-bottom: 1px solid #1e293b;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 10;
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-box {
+      padding: 0.5rem;
+      background-color: var(--color-indigo);
+      border-radius: 0.5rem;
+      color: white;
+      box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-title h1 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      background: linear-gradient(to right, #818cf8, #c084fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .logo-title p {
+      font-size: 10px;
+      color: var(--text-slate-400);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+    }
+
+    /* Navigation styling */
+    nav {
+      display: flex;
+      gap: 0.25rem;
+      background-color: rgba(15, 23, 42, 0.6);
+      padding: 0.25rem;
+      border-radius: 0.75rem;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      padding: 0.4rem 1rem;
+      border-radius: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-slate-400);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn:hover {
+      color: white;
+    }
+
+    .tab-btn.active {
+      background-color: var(--color-indigo);
+      color: white;
+      box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.2);
+    }
+
+    .controls-top {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-circle {
+      background-color: var(--bg-slate-800);
+      border: 1px solid var(--bg-slate-700);
+      color: var(--text-slate-300);
+      border-radius: 0.5rem;
+      padding: 0.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .btn-circle:hover {
+      background-color: var(--bg-slate-700);
+      color: white;
+    }
+
+    .btn-danger {
+      background-color: rgba(244, 63, 94, 0.15);
+      border: 1px solid rgba(244, 63, 94, 0.3);
+      color: var(--color-rose);
+      padding: 0.4rem 1rem;
+      border-radius: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: all 0.2s;
+    }
+
+    .btn-danger:hover {
+      background-color: var(--color-rose);
+      color: white;
+    }
+
+    /* Main display panel */
+    main {
+      flex: 1;
+      height: 84%;
+      position: relative;
+      background-color: rgba(15, 23, 42, 0.3);
+      padding: 1rem;
+    }
+
+    .tab-content {
+      width: 100%;
+      height: 100%;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* Grid Layouts */
+    .grid-12 {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 1rem;
+      height: 100%;
+    }
+
+    .col-4 { grid-column: span 4 / span 4; }
+    .col-8 { grid-column: span 8 / span 8; }
+
+    /* Custom panel styles */
+    .panel-box {
+      background-color: rgba(2, 6, 23, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 0.75rem;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .panel-title {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--text-slate-100);
+      margin-bottom: 0.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(99, 102, 241, 0.15);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Scrollable items */
+    .scroll-y {
+      overflow-y: auto;
+      max-height: calc(100% - 70px);
+      padding-right: 0.25rem;
+    }
+
+    .list-btn {
+      width: 100%;
+      text-align: left;
+      padding: 0.65rem 1rem;
+      border-radius: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      background-color: rgba(15, 23, 42, 0.4);
+      color: var(--text-slate-400);
+      margin-bottom: 0.35rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.2s;
+    }
+
+    .list-btn:hover {
+      background-color: rgba(30, 41, 59, 0.6);
+      color: white;
+    }
+
+    .list-btn.active {
+      background-color: rgba(99, 102, 241, 0.15);
+      border-color: rgba(99, 102, 241, 0.4);
+      color: white;
+    }
+
+    /* Brush and shapes tools grid */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .shapes-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .tool-btn {
+      background-color: var(--bg-slate-900);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 0.5rem;
+      padding: 0.5rem;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+      color: var(--text-slate-300);
+      transition: all 0.2s;
+    }
+
+    .tool-btn:hover {
+      background-color: var(--bg-slate-800);
+      color: white;
+    }
+
+    .tool-btn.active {
+      background-color: rgba(99, 102, 241, 0.15);
+      border: 2px solid var(--color-indigo);
+      color: #818cf8;
+    }
+
+    /* Color picker dots */
+    .colors-container {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .color-dot {
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: transform 0.15s;
+    }
+
+    .color-dot:hover {
+      transform: scale(1.1);
+    }
+
+    /* Range slider inputs */
+    .slider-box {
+      background-color: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 0.65rem;
+      border-radius: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .slider-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--text-slate-300);
+      margin-bottom: 0.25rem;
+    }
+
+    .range-slider {
+      width: 100%;
+      height: 4px;
+      background: var(--bg-slate-800);
+      border-radius: 2px;
+      outline: none;
+      accent-color: var(--color-indigo);
+      cursor: pointer;
+    }
+
+    /* Select input */
+    .custom-select {
+      width: 100%;
+      background-color: var(--bg-slate-900);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 0.5rem;
+      padding: 0.4rem 0.5rem;
+      color: var(--text-slate-300);
+      font-size: 10px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    /* Interactive canvas frame */
+    .canvas-panel {
+      background-color: var(--bg-slate-950);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 0.75rem;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      height: 100%;
+    }
+
+    .canvas-header {
+      background-color: rgba(15, 23, 42, 0.6);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .canvas-area {
+      flex: 1;
+      position: relative;
+      background-color: #020617;
+      background-image: radial-gradient(rgba(30, 41, 59, 0.6) 1px, transparent 1px);
+      background-size: 16px 16px;
+      cursor: crosshair;
+    }
+
+    #rupa-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Splash Screen Overlay with Fallback Gradient Mesh */
+    #splash-screen {
+      position: absolute;
+      inset: 0;
+      background-color: var(--bg-slate-950);
+      z-index: 50;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.6s ease-in-out;
+    }
+
+    .splash-decor-image {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.95;
+      /* Default fallback background if image assets fail to load offline */
+      background-image: linear-gradient(to bottom, rgba(2, 6, 23, 0.7) 0%, rgba(2, 6, 23, 0.98) 90%), 
+                        radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.15) 0%, transparent 50%), 
+                        radial-gradient(circle at 80% 70%, rgba(168, 85, 247, 0.15) 0%, transparent 50%);
+    }
+
+    .splash-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      max-width: 500px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .splash-icon-wrapper {
+      padding: 1rem;
+      background-color: rgba(99, 102, 241, 0.2);
+      border: 1px solid rgba(99, 102, 241, 0.4);
+      border-radius: 1.25rem;
+      color: #818cf8;
+      box-shadow: 0 20px 40px -5px rgba(99, 102, 241, 0.3);
+      animation: pulse 2s infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Interactive button styles */
+    .action-btn {
+      padding: 0.75rem 2rem;
+      background: linear-gradient(to right, var(--color-indigo), var(--color-purple));
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .action-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.4);
+    }
+
+    /* Loading bar design */
+    .progress-box {
+      width: 16rem;
+      background-color: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      height: 1.25rem;
+      border-radius: 1rem;
+      overflow: hidden;
+      padding: 2px;
+      position: relative;
+    }
+
+    .progress-fill {
+      background: linear-gradient(to right, var(--color-indigo), var(--color-purple));
+      height: 100%;
+      border-radius: 1rem;
+      transition: width 0.1s linear;
+      width: 0%;
+    }
+
+    .progress-text {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--text-slate-100);
+      text-shadow: 1px 1px 2px black;
+    }
+
+    /* Toast system */
+    #toast {
+      position: absolute;
+      top: 4.5rem;
+      left: 50%;
+      transform: translateX(-50%) scale(0.9);
+      background-color: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      color: #818cf8;
+      padding: 0.5rem 1rem;
+      border-radius: 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.25s ease-out;
+      z-index: 100;
+    }
+
+    /* Form components */
+    .form-group {
+      margin-bottom: 0.75rem;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-slate-200);
+      margin-bottom: 0.25rem;
+      line-height: 1.4;
+    }
+
+    .form-textarea {
+      width: 100%;
+      background-color: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 0.5rem;
+      padding: 0.5rem;
+      font-size: 0.75rem;
+      color: var(--text-slate-100);
+      outline: none;
+      resize: none;
+    }
+
+    .form-textarea:focus {
+      border-color: var(--color-indigo);
+    }
+
+    /* Radio elements */
+    .radio-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.5rem;
+    }
+
+    .radio-label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: rgba(15, 23, 42, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-size: 11px;
+      color: var(--text-slate-300);
+      transition: all 0.2s;
+    }
+
+    .radio-label:hover {
+      background-color: rgba(30, 41, 59, 0.5);
+    }
+
+    .radio-input {
+      accent-color: var(--color-indigo);
+    }
+
+    /* Grade circle */
+    .grade-circle {
+      width: 6rem;
+      height: 6rem;
+      border-radius: 50%;
+      background-color: var(--bg-slate-800);
+      border: 4px solid rgba(99, 102, 241, 0.15);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .grade-circle.success {
+      border-color: var(--color-emerald);
+      box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+    }
+
+    .grade-circle.warning {
+      border-color: var(--color-amber);
+      box-shadow: 0 0 15px rgba(245, 158, 11, 0.2);
+    }
+
+    /* Footer styling */
+    footer {
+      height: 6%;
+      background-color: rgba(2, 6, 23, 0.85);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--text-slate-400);
+      z-index: 10;
+    }
+
+    /* Developer Image & Framing (Preserving Background & Highly Aesthetic) */
+    .dev-card {
+      max-width: 620px;
+      background-color: rgba(2, 6, 23, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 1.25rem;
+      padding: 1.75rem;
+      display: flex;
+      gap: 1.75rem;
+      align-items: center;
+      box-shadow: 0 25px 40px -10px rgba(0, 0, 0, 0.6), 
+                  0 0 15px rgba(99, 102, 241, 0.1);
+    }
+
+    .dev-avatar-container {
+      width: 9.5rem;
+      height: 11.5rem; /* Portrait ratio to perfectly and proportionally accommodate the developer photo */
+      border-radius: 0.75rem; /* Rounded card layout to match the beautiful layout */
+      background: linear-gradient(to bottom, var(--color-indigo), var(--color-purple));
+      padding: 3px; /* premium border ring effect */
+      box-shadow: 0 10px 25px rgba(99, 102, 241, 0.35);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .dev-avatar-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 0.6rem;
+      /* Background is deliberately PRESERVED. Brightness and contrast slightly boosted for aesthetic fidelity. */
+      filter: brightness(1.05) contrast(1.05);
+      transition: transform 0.3s ease;
+    }
+
+    .dev-avatar-container:hover img {
+      transform: scale(1.04);
+    }
+
+    /* SVG Fallback container if the local image is missing */
+    .dev-avatar-fallback {
+      position: absolute;
+      inset: 3px;
+      border-radius: 0.6rem;
+      background-color: var(--bg-slate-900);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-slate-300);
+      z-index: 1;
+    }
+
+    /* Decorative elements */
+    .dot-status {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--color-emerald);
+    }
+
+    /* SVG Sizing */
+    .icon-svg {
+      width: 1rem;
+      height: 1rem;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Keyframes */
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.75; transform: scale(0.96); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Main Container: Enforced 16:9 Aspect Ratio -->
+  <div class="app-container">
+    
+    <!-- SPLASH SCREEN OVERLAY -->
+    <div id="splash-screen">
+      <!-- Background from local assets folder with gradient veil -->
+      <div id="splash-bg" class="splash-decor-image"></div>
+      
+      <div class="splash-content">
+        <!-- Decorative Icon -->
+        <div class="splash-icon-wrapper">
+          <svg class="icon-svg" style="width:3rem; height:3rem;" viewBox="0 0 24 24">
+            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"/>
+            <path d="M12 8C13.1046 8 14 7.10457 14 6C14 4.89543 13.1046 4 12 4C10.8954 4 10 4.89543 10 6C10 7.10457 10.8954 8 12 8Z"/>
+            <path d="M6 12C7.10457 12 8 11.1046 8 10C8 8.89543 7.10457 8 6 8C4.89543 8 4 8.89543 4 10C4 11.1046 4.89543 12 6 12Z"/>
+            <path d="M18 12C19.1046 12 20 11.1046 20 10C20 8.89543 19.1046 8 18 8C16.8954 8 16 8.89543 16 10C16 11.1046 16.8954 12 18 12Z"/>
+          </svg>
+        </div>
+        
+        <div>
+          <h1 style="font-size: 1.75rem; font-weight: 900; background: linear-gradient(to right, #818cf8, #c084fc, #f472b6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 0.05em;">
+            LAB VIRTUAL: UNSUR RUPA
+          </h1>
+          <p style="font-size: 10px; color: var(--text-slate-400); font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; margin-top: 0.25rem;">
+            Seni Rupa • Fase F (SMA Kelas XI/XII)
+          </p>
+        </div>
+        
+        <!-- Loading Indicator -->
+        <div id="loading-container" class="progress-box">
+          <div id="loading-bar" class="progress-fill"></div>
+          <span id="loading-text" class="progress-text">Menghubungkan Aset Lokal... 0%</span>
+        </div>
+
+        <!-- Start Button (Initially hidden) -->
+        <button id="start-btn" onclick="startApp()" class="action-btn hidden">
+          Mulai Praktikum 
+          <svg class="icon-svg" style="width: 1.25rem; height: 1.25rem;" viewBox="0 0 24 24">
+            <polygon points="5 3 19 12 5 21 5 3"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+      <div class="header-logo">
+        <div class="logo-box">
+          <svg class="icon-svg" viewBox="0 0 24 24">
+            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"/>
+            <path d="M12 8C13.1046 8 14 7.10457 14 6C14 4.89543 13.1046 4 12 4C10.8954 4 10 4.89543 10 6C10 7.10457 10.8954 8 12 8Z"/>
+          </svg>
+        </div>
+        <div class="logo-title">
+          <h1>LAB VIRTUAL: UNSUR RUPA</h1>
+          <p>SENI RUPA • FASE F (SMA KELAS XI/XII)</p>
+        </div>
+      </div>
+
+      <!-- Tab Navigation -->
+      <nav>
+        <button onclick="switchTab('teori')" id="tab-teori" class="tab-btn active">
+          <svg class="icon-svg" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg> 
+          Teori
+        </button>
+        <button onclick="switchTab('prosedur')" id="tab-prosedur" class="tab-btn">
+          <svg class="icon-svg" viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg> 
+          Prosedur
+        </button>
+        <button onclick="switchTab('simulasi')" id="tab-simulasi" class="tab-btn">
+          <svg class="icon-svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> 
+          Simulasi
+        </button>
+        <button onclick="switchTab('lkpd')" id="tab-lkpd" class="tab-btn">
+          <svg class="icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg> 
+          LKPD
+        </button>
+        <button onclick="switchTab('pengembang')" id="tab-pengembang" class="tab-btn">
+          <svg class="icon-svg" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> 
+          Pengembang
+        </button>
+      </nav>
+
+      <!-- Reset & Sound Control -->
+      <div class="controls-top">
+        <button onclick="toggleSound()" id="sound-btn" class="btn-circle" title="Aktifkan/Bisukan Suara">
+          <svg id="sound-icon" class="icon-svg" style="color:var(--color-emerald);" viewBox="0 0 24 24">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
+        </button>
+        <button onclick="globalReset()" class="btn-danger">
+          <svg class="icon-svg" viewBox="0 0 24 24"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path></svg>
+          Atur Ulang
+        </button>
+      </div>
+    </header>
+
+    <!-- CONTENT DISPLAY -->
+    <main>
+
+      <!-- ================= TAB 1: TEORI ================= -->
+      <section id="content-teori" class="tab-content grid-12">
+        <!-- Sidebar Teori List -->
+        <div class="col-4 panel-box">
+          <div>
+            <h2 class="panel-title">
+              <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"/><circle cx="12" cy="12" r="3"/></svg>
+              Unsur Seni Rupa
+            </h2>
+            <div class="scroll-y" id="theory-menu">
+              <!-- Populated dynamically -->
+            </div>
+          </div>
+          <div style="background-color: rgba(99, 102, 241, 0.08); border: 1px solid rgba(99, 102, 241, 0.2); padding: 0.75rem; border-radius: 0.5rem;">
+            <h3 style="font-size: 11px; font-weight: 700; color: #818cf8; display: flex; align-items: center; gap: 0.35rem; margin-bottom: 0.25rem;">
+              <svg class="icon-svg" style="color:var(--color-amber); width:0.85rem; height:0.85rem;" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><line x1="9" y1="18" x2="15" y2="18"></line><line x1="10" y1="22" x2="14" y2="22"></line></svg>
+              Konteks Fase F:
+            </h3>
+            <p style="font-size: 10px; color: var(--text-slate-300); line-height: 1.45;">
+              Di Fase F, Anda tidak hanya mengenali unsur rupa, melainkan mampu menganalisis interaksi, keseimbangan, serta potensi semiotisnya dalam menciptakan komposisi artistik yang matang.
+            </p>
+          </div>
+        </div>
+
+        <!-- Detail Teori View -->
+        <div class="col-8 panel-box">
+          <div style="height: 100%; display: flex; flex-direction: column;" id="theory-detail">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= TAB 2: PROSEDUR ================= -->
+      <section id="content-prosedur" class="tab-content hidden grid-12">
+        <div class="col-4 panel-box">
+          <div>
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; color: #818cf8;">
+              <svg class="icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle></svg>
+              <h3 style="font-weight: 700; font-size: 0.875rem;">Tujuan Pembelajaran</h3>
+            </div>
+            <ul style="list-style-type: none; display: flex; flex-direction: column; gap: 0.5rem;">
+              <li style="display: flex; align-items: start; gap: 0.5rem; font-size: 0.75rem; color: var(--text-slate-300);">
+                <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background-color: var(--color-indigo); margin-top: 0.35rem; shrink-0;"></span>
+                <span>Menganalisis karakteristik visual dari 5 unsur seni rupa utama secara presisi.</span>
+              </li>
+              <li style="display: flex; align-items: start; gap: 0.5rem; font-size: 0.75rem; color: var(--text-slate-300);">
+                <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background-color: var(--color-indigo); margin-top: 0.35rem; shrink-0;"></span>
+                <span>Eksperimen penerapan gradasi gelap-terang dan tekstur pada bidang geometris.</span>
+              </li>
+            </ul>
+          </div>
+          <div style="background-color: var(--bg-slate-900); border: 1px solid rgba(255, 255, 255, 0.05); padding: 0.75rem; border-radius: 0.5rem;">
+            <h4 style="font-size: 11px; font-weight: 700; color: #818cf8; display: flex; align-items: center; gap: 0.35rem; margin-bottom: 0.15rem;">
+              <svg class="icon-svg" style="color:var(--color-rose);" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line></svg>
+              Eksplorasi Mandiri
+            </h4>
+            <p style="font-size: 10px; color: var(--text-slate-400);">Cobalah mengombinasikan garis lengkung dengan bidang arsiran kasar untuk melatih kontras visual pada kanvas simulasi.</p>
+          </div>
+        </div>
+
+        <div class="col-8 panel-box">
+          <div>
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; color: #c084fc;">
+              <svg class="icon-svg" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              <h3 style="font-weight: 700; font-size: 0.875rem;">Langkah Kerja Eksperimen</h3>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem;">
+              <div style="background-color: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.05); padding: 0.75rem; border-radius: 0.5rem;">
+                <span style="display: inline-block; background-color: rgba(99, 102, 241, 0.15); color: #818cf8; font-size: 9px; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 9999px; margin-bottom: 0.35rem;">LANGKAH 1</span>
+                <h4 style="font-size: 11px; font-weight: 600; margin-bottom: 0.15rem;">Eksplorasi Garis & Bidang</h4>
+                <p style="font-size: 10px; color: var(--text-slate-400); line-height: 1.45;">Masuk ke tab <b>Simulasi</b>. Pilih jenis garis (tebal/tipis/putus-putus) lalu goreskan kuas di atas kanvas.</p>
+              </div>
+              <div style="background-color: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.05); padding: 0.75rem; border-radius: 0.5rem;">
+                <span style="display: inline-block; background-color: rgba(99, 102, 241, 0.15); color: #818cf8; font-size: 9px; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 9999px; margin-bottom: 0.35rem;">LANGKAH 2</span>
+                <h4 style="font-size: 11px; font-weight: 600; margin-bottom: 0.15rem;">Manipulasi Bentuk & Warna</h4>
+                <p style="font-size: 10px; color: var(--text-slate-400); line-height: 1.45;">Tambahkan bidang seperti lingkaran atau segitiga. Ubah warnanya menggunakan palet warna primer/sekunder.</p>
+              </div>
+              <div style="background-color: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.05); padding: 0.75rem; border-radius: 0.5rem;">
+                <span style="display: inline-block; background-color: rgba(99, 102, 241, 0.15); color: #818cf8; font-size: 9px; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 9999px; margin-bottom: 0.35rem;">LANGKAH 3</span>
+                <h4 style="font-size: 11px; font-weight: 600; margin-bottom: 0.15rem;">Penerapan Gelap Terang & Tekstur</h4>
+                <p style="font-size: 10px; color: var(--text-slate-400); line-height: 1.45;">Geser slider <i>Gelap-Terang</i> untuk mengubah intensitas bayangan. Pilih pola <i>Tekstur</i> untuk memberi tekstur semu.</p>
+              </div>
+              <div style="background-color: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.05); padding: 0.75rem; border-radius: 0.5rem;">
+                <span style="display: inline-block; background-color: rgba(99, 102, 241, 0.15); color: #818cf8; font-size: 9px; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 9999px; margin-bottom: 0.35rem;">LANGKAH 4</span>
+                <h4 style="font-size: 11px; font-weight: 600; margin-bottom: 0.15rem;">Menyelesaikan LKPD</h4>
+                <p style="font-size: 10px; color: var(--text-slate-400); line-height: 1.45;">Jawablah pertanyaan evaluasi pada tab <b>LKPD</b> untuk mengukur pemahaman konsep yang telah disimulasikan.</p>
+              </div>
+            </div>
+          </div>
+          <div style="display: flex; justify-content: flex-end;">
+            <button onclick="switchTab('simulasi')" class="action-btn">
+              Mulai Simulasi Sekarang
+              <svg class="icon-svg" style="width: 1rem; height: 1rem;" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= TAB 3: SIMULASI ================= -->
+      <section id="content-simulasi" class="tab-content hidden grid-12">
+        <div class="col-4 panel-box" style="overflow-y: auto;">
+          <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+            
+            <!-- Alat & Kuas -->
+            <div>
+              <h3 style="font-size: 11px; font-weight: 700; color: #818cf8; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.35rem;">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                Alat & Kuas (Garis)
+              </h3>
+              <div class="tools-grid">
+                <button onclick="setTool('brush-solid')" id="tool-brush-solid" class="tool-btn active">
+                  <span style="display: block; width: 20px; height: 4px; background-color: var(--text-slate-100); border-radius: 2px; margin: 4px 0;"></span>
+                  <span style="font-size: 9px; font-weight: 600;">Garis Tebal</span>
+                </button>
+                <button onclick="setTool('brush-dashed')" id="tool-brush-dashed" class="tool-btn">
+                  <span style="display: block; width: 20px; height: 4px; border-bottom: 2px dashed var(--text-slate-100); margin: 4px 0;"></span>
+                  <span style="font-size: 9px; font-weight: 600;">Putus-Putus</span>
+                </button>
+                <button onclick="setTool('brush-wavy')" id="tool-brush-wavy" class="tool-btn">
+                  <span style="font-size: 10px; font-weight: 700; line-height: 1; margin: 2px 0;">〰</span>
+                  <span style="font-size: 9px; font-weight: 600;">Bergelombang</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Bidang & Bentuk -->
+            <div>
+              <h3 style="font-size: 11px; font-weight: 700; color: #c084fc; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.35rem;">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                Elemen Bidang & Bentuk
+              </h3>
+              <div class="shapes-grid">
+                <button onclick="setTool('shape-square')" id="tool-shape-square" class="tool-btn">
+                  <div style="width: 1rem; height: 1rem; background-color: var(--color-purple); border-radius: 2px;"></div>
+                  <span style="font-size: 9px;">Kotak</span>
+                </button>
+                <button onclick="setTool('shape-circle')" id="tool-shape-circle" class="tool-btn">
+                  <div style="width: 1rem; height: 1rem; background-color: var(--color-purple); border-radius: 50%;"></div>
+                  <span style="font-size: 9px;">Bulat</span>
+                </button>
+                <button onclick="setTool('shape-triangle')" id="tool-shape-triangle" class="tool-btn">
+                  <div style="width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-bottom: 16px solid var(--color-purple);"></div>
+                  <span style="font-size: 9px;">Segitiga</span>
+                </button>
+                <button onclick="setTool('shape-star')" id="tool-shape-star" class="tool-btn">
+                  <svg class="icon-svg" style="width:1rem; height:1rem; color:var(--color-purple); fill:currentColor;" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <span style="font-size: 9px;">Bintang</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Warna & Tekstur -->
+            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.5rem;">
+              <div>
+                <h3 style="font-size: 11px; font-weight: 700; color: #f59e0b; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.25rem;">
+                  <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-4.3-7-11-7-11S5 10.7 5 15a7 7 0 0 0 7 7z"></path></svg>
+                  Warna Aktif
+                </h3>
+                <div class="colors-container">
+                  <button onclick="setColor('#ef4444')" class="color-dot" style="background-color: #ef4444; border-color: white;"></button>
+                  <button onclick="setColor('#f59e0b')" class="color-dot" style="background-color: #f59e0b;"></button>
+                  <button onclick="setColor('#3b82f6')" class="color-dot" style="background-color: #3b82f6;"></button>
+                  <button onclick="setColor('#10b981')" class="color-dot" style="background-color: #10b981;"></button>
+                  <button onclick="setColor('#8b5cf6')" class="color-dot" style="background-color: #8b5cf6;"></button>
+                  <button onclick="setColor('#ec4899')" class="color-dot" style="background-color: #ec4899;"></button>
+                  <button onclick="setColor('#ffffff')" class="color-dot" style="background-color: #ffffff;"></button>
+                  <button onclick="setColor('#1e293b')" class="color-dot" style="background-color: #1e293b;"></button>
+                </div>
+              </div>
+
+              <div>
+                <h3 style="font-size: 11px; font-weight: 700; color: #10b981; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.25rem;">
+                  <svg class="icon-svg" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line><line x1="15" y1="3" x2="15" y2="21"></line></svg>
+                  Tekstur Semu
+                </h3>
+                <select id="texture-select" onchange="updateSelectedTexture()" class="custom-select">
+                  <option value="none">Polos (Tanpa Tekstur)</option>
+                  <option value="hatching">Arsir Searah (Hatching)</option>
+                  <option value="cross-hatching">Arsir Silang (Cross)</option>
+                  <option value="dots">Titik-Titik (Stippling)</option>
+                  <option value="grid">Kotak-Kotak (Grid)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Gelap Terang & Ukuran -->
+            <div style="display: flex; flex-direction: column; gap: 0.35rem;">
+              <div class="slider-box">
+                <div class="slider-header">
+                  <span style="display: flex; align-items: center; gap: 0.25rem;"><svg class="icon-svg" style="color:var(--color-amber); width:0.75rem; height:0.75rem;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line></svg> Gelap Terang (Intensitas)</span>
+                  <span id="val-gelap-terang">100%</span>
+                </div>
+                <input type="range" id="gelap-terang" min="20" max="100" value="100" oninput="updateGelapTerang(this.value)" class="range-slider">
+              </div>
+              <div class="slider-box">
+                <div class="slider-header">
+                  <span style="display: flex; align-items: center; gap: 0.25rem;"><svg class="icon-svg" style="color:var(--color-indigo); width:0.75rem; height:0.75rem;" viewBox="0 0 24 24"><path d="M15 3h6v6"></path><path d="M9 21H3v-6"></path></svg> Skala / Ukuran</span>
+                  <span id="val-size">100px</span>
+                </div>
+                <input type="range" id="element-size" min="30" max="200" value="100" oninput="updateElementSize(this.value)" class="range-slider">
+              </div>
+            </div>
+
+          </div>
+
+          <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 0.5rem; display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-top: auto;">
+            <button onclick="clearCanvas()" class="btn-danger" style="padding: 0.35rem 0.75rem;">
+              <svg class="icon-svg" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"></polyline></svg>
+              Sapu Bersih
+            </button>
+            <div style="font-size: 9px; color: var(--text-slate-500); text-align: right; line-height: 1.3;">
+              <span>Pilih kuas atau bentuk rupa,<br>lalu coret/stempel di kanvas!</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-8 canvas-panel">
+          <div class="canvas-header">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span class="dot-status" style="animation: pulse 1.5s infinite;"></span>
+              <span style="font-size: 11px; font-weight: 700; color: var(--text-slate-100);">Interactive Canvas Rupa</span>
+            </div>
+            
+            <div style="display: flex; align-items: center; gap: 0.35rem;">
+              <span style="font-size: 10px; color: var(--text-slate-400);">Tantangan Komposisi:</span>
+              <button onclick="loadCompositionPreset('statis')" style="background-color: var(--bg-slate-800); border: 1px solid rgba(99, 102, 241, 0.2); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 9px; font-weight: 700; color: #818cf8; cursor: pointer; transition: all 0.2s;">
+                1. Statis (Keseimbangan)
+              </button>
+              <button onclick="loadCompositionPreset('dinamis')" style="background-color: var(--bg-slate-800); border: 1px solid rgba(168, 85, 247, 0.2); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 9px; font-weight: 700; color: #c084fc; cursor: pointer; transition: all 0.2s;">
+                2. Dinamis (Gerak/Ritme)
+              </button>
+            </div>
+          </div>
+
+          <div class="canvas-area" id="canvas-container">
+            <canvas id="rupa-canvas"></canvas>
+            
+            <div style="position: absolute; bottom: 0.5rem; right: 0.5rem; background-color: rgba(15, 23, 42, 0.9); border: 1px solid rgba(255, 255, 255, 0.05); padding: 0.4rem 0.75rem; border-radius: 0.5rem; font-size: 10px; color: var(--text-slate-300); max-width: 240px; pointer-events: none; display: flex; align-items: flex-start; gap: 0.5rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);">
+              <svg class="icon-svg" style="color:var(--color-indigo); width:0.85rem; height:0.85rem; shrink-0; margin-top:1px;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line></svg>
+              <span><b>Saran:</b> Goreskan mouse untuk menggambar garis, atau pilih ikon bidang untuk menempatkan bentuk geometris.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= TAB 4: LKPD ================= -->
+      <section id="content-lkpd" class="tab-content hidden grid-12">
+        <div class="col-8 panel-box" style="overflow-y: auto;">
+          <div>
+            <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 0.5rem; margin-bottom: 0.75rem;">
+              <h3 style="font-weight: 700; font-size: 0.875rem; color: #818cf8; display: flex; align-items: center; gap: 0.5rem;">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path></svg>
+                Lembar Kerja Praktikum Mandiri
+              </h3>
+              <span style="font-size: 9px; background-color: var(--bg-slate-800); color: var(--text-slate-300); padding: 0.15rem 0.5rem; border-radius: 9999px; font-weight: 600;">Topik: Komposisi Seni Rupa</span>
+            </div>
+
+            <form id="lkpd-form" style="display: flex; flex-direction: column; gap: 0.75rem;">
+              <div class="form-group">
+                <label class="form-label">
+                  1. Bagaimana pengaruh unsur <span style="color:var(--color-amber);">Gelap Terang</span> dan <span style="color:var(--color-emerald);">Tekstur</span> terhadap persepsi kedalaman ruang pada sebuah bidang datar rupa?
+                </label>
+                <textarea id="q1-input" rows="2" class="form-textarea" placeholder="Ketik analisis kritis Anda di sini..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">
+                  2. Dari eksperimen di tab <b>Simulasi</b>, jelaskan perbedaan komposisi simetris yang statis dibandingkan dengan komposisi rupa asimetris yang dinamis!
+                </label>
+                <textarea id="q2-input" rows="2" class="form-textarea" placeholder="Ketik jawaban analisis berdasar simulasi..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">
+                  3. Manakah kombinasi unsur rupa yang paling efektif untuk menciptakan kontras tinggi (*high contrast*)?
+                </label>
+                <div class="radio-grid">
+                  <label class="radio-label">
+                    <input type="radio" name="q3-opt" value="A" class="radio-input">
+                    <span>A. Warna komplementer + Arsir tebal</span>
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="q3-opt" value="B" class="radio-input">
+                    <span>B. Garis tipis + Tekstur halus</span>
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="q3-opt" value="C" class="radio-input">
+                    <span>C. Bidang lingkaran + Gradasi terang</span>
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="q3-opt" value="D" class="radio-input">
+                    <span>D. Warna analog + Tekstur semu</span>
+                  </label>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div style="margin-top: 1rem; padding-top: 0.5rem; border-top: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-size: 9px; color: var(--text-slate-500);">Pastikan semua pertanyaan diisi dengan teliti.</span>
+            <button onclick="submitLKPD()" class="action-btn" style="background: var(--color-emerald); padding: 0.5rem 1rem; border: none; box-shadow: none;">
+              <svg class="icon-svg" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path></svg>
+              Serahkan Jawaban
+            </button>
+          </div>
+        </div>
+
+        <div class="col-4 panel-box">
+          <div>
+            <h3 class="panel-title">
+              <svg class="icon-svg" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path></svg>
+              Status Penilaian
+            </h3>
+            
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.5rem 0; background-color: rgba(15, 23, 42, 0.3); border-radius: 0.75rem; border: 1px solid rgba(255,255,255,0.03); margin-bottom: 0.75rem;">
+              <div class="grade-circle" id="grade-container">
+                <span id="score-text" style="font-size: 1.5rem; font-weight: 900; color: var(--text-slate-400);">0</span>
+                <span style="font-size: 9px; color: var(--text-slate-500); position: absolute; bottom: 0.75rem;">/100</span>
+              </div>
+              <p style="font-size: 10px; font-weight: 600; color: var(--text-slate-400); margin-top: 0.5rem;">Nilai Evaluasi LKPD</p>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 0.35rem;">
+              <div style="display: flex; justify-content: space-between; font-size: 10px; padding: 0.5rem; background-color: rgba(15, 23, 42, 0.2); border-radius: 4px;">
+                <span style="color:var(--text-slate-500);">Status Pengiriman:</span>
+                <span id="submit-status" style="font-weight: 700; color: var(--color-rose);">Belum Diserahkan</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 10px; padding: 0.5rem; background-color: rgba(15, 23, 42, 0.2); border-radius: 4px;">
+                <span style="color:var(--text-slate-500);">Kategori Kelulusan:</span>
+                <span id="passing-status" style="font-weight: 700; color: var(--text-slate-400);">-</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="background-color: rgba(99, 102, 241, 0.08); border: 1px solid rgba(99, 102, 241, 0.2); padding: 0.5rem 0.75rem; border-radius: 0.5rem;">
+            <h4 style="font-size: 10px; font-weight: 700; color: #818cf8; display: flex; align-items: center; gap: 0.25rem; margin-bottom: 0.15rem;">
+              <svg class="icon-svg" style="width:0.85rem; height:0.85rem;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle></svg>
+              Catatan Guru:
+            </h4>
+            <p id="teacher-notes" style="font-size: 9px; color: var(--text-slate-400); line-height: 1.35;">
+              Sistem akan menilai ketepatan analisis dan pilihan ganda Anda. Lakukan eksperimen simulasi terlebih dahulu sebelum menjawab pertanyaan agar data lebih akurat.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= TAB 5: PENGEMBANG ================= -->
+      <section id="content-pengembang" class="tab-content hidden" style="display: flex; align-items: center; justify-content: center;">
+        <div class="dev-card">
+          
+          <!-- Modern Profile Frame with Local Image & Smart Fallback -->
+          <div class="dev-avatar-container">
+            <!-- Offline-First: Memuat lokal assets primer, baru tautan awan jika tidak ada, dilanjutkan SVG jika luring total -->
+            <img src="assets/images/developer.png" id="dev-image" alt="I.G.P.A Mirah Rahmawati" onerror="handleDevImageFallback(this)">
+            <!-- SVG Fallback inside if file is not found (offline-safe) -->
+            <div id="dev-avatar-fallback" class="dev-avatar-fallback hidden">
+              <svg class="icon-svg" style="width: 3.5rem; height: 3.5rem; color: var(--text-slate-400);" viewBox="0 0 24 24">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+          </div>
+
+          <div>
+            <span style="display: inline-block; background-color: rgba(99, 102, 241, 0.15); color: #818cf8; font-size: 9px; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 9999px; margin-bottom: 0.35rem; text-transform: uppercase;">Pengembang Utama</span>
+            <h3 style="font-size: 1.125rem; font-weight: 700; color: var(--text-slate-100);">I.G.P.A Mirah Rahmawati</h3>
+            <p style="font-size: 10px; color: var(--text-slate-400); margin-top: 0.15rem;">Seni Rupa & Teknologi Pembelajaran</p>
+            <p style="font-size: 10px; color: var(--text-slate-300); margin-top: 0.5rem; line-height: 1.45;">
+              Laboratorium virtual ini dirancang untuk menyederhanakan pemahaman kritis siswa SMA Fase F terhadap elemen-elemen estetika seni rupa. Eksperimen digital ini memungkinkan eksplorasi warna, gradasi bayangan, dan tekstur semu secara langsung, presisi, dan interaktif.
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.5rem; margin-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 0.5rem; font-size: 10px;">
+              <div>
+                <p style="color: var(--text-slate-500);">Aplikasi Luring</p>
+                <p style="font-weight: 600; color: var(--text-slate-200);">v1.2.0 (Standalone Assets)</p>
+              </div>
+              <div>
+                <p style="color: var(--text-slate-500);">Mesin Grafis</p>
+                <p style="font-weight: 600; color: var(--text-slate-200);">HTML5 Canvas & External Assets</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER / STATUS BAR -->
+    <footer>
+      <div style="display: flex; align-items: center; gap: 0.35rem;">
+        <svg class="icon-svg" style="color:var(--color-indigo); width:0.85rem; height:0.85rem;" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect></svg>
+        <span>Sistem Siap Eksperimen</span>
+      </div>
+      <div id="status-message" style="color: var(--color-indigo); font-weight: 600;">Selamat datang! Silakan mulai dengan mengeksplorasi Tab Teori.</div>
+      <div style="display: flex; align-items: center; gap: 0.35rem;">
+        <span class="dot-status"></span>
+        <span>Aplikasi Berjalan 100% Luring</span>
+      </div>
+    </footer>
+
+    <!-- Toast Notification System -->
+    <div id="toast">
+      <svg class="icon-svg" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path></svg>
+      <span id="toast-msg">Notifikasi</span>
+    </div>
+
+  </div>
+
+  <!-- JavaScript Modules for Standalone Offline Operation -->
+  <script>
+    // ----------------------------------------------------
+    // GLOBAL APP STATE & CONSTANTS
+    // ----------------------------------------------------
+    let currentTab = 'teori';
+    let isSoundOn = true;
+    let selectedColor = '#ef4444'; // Red default
+    let selectedTool = 'brush-solid'; 
+    let currentTexture = 'none';
+    let currentGelapTerang = 100;
+    let currentSize = 100;
+    
+    // Canvas Engine state
+    let shapes = [];
+    let lines = [];
+    let activeDrawingLine = null;
+    let canvas, ctx;
+    
+    // Audio Context and loaded audio elements
+    let audioCtx = null;
+    const soundAssets = {
+      click: null,
+      success: null,
+      reset: null,
+      draw: null
+    };
+
+    function initAudio() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+    }
+
+    // Attempt to load external audio files. 
+    function preloadSounds() {
+      const audioPaths = {
+        click: 'assets/sound/click.mp3',
+        success: 'assets/sound/success.mp3',
+        reset: 'assets/sound/reset.mp3',
+        draw: 'assets/sound/draw.mp3'
+      };
+
+      for (let key in audioPaths) {
+        const audio = new Audio();
+        audio.src = audioPaths[key];
+        audio.preload = 'auto';
+        audio.addEventListener('canplaythrough', () => {
+          soundAssets[key] = audio;
+        }, { once: true });
+        
+        // Quietly fail-safe if files are not available
+        audio.addEventListener('error', () => {
+          soundAssets[key] = null; 
+        });
+      }
+    }
+
+    // Play synthetic sound effects (programmatic oscillator synth is utilized as fallback)
+    function playSound(type) {
+      if (!isSoundOn) return;
+      initAudio();
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+
+      // 1. Play from local assets if available
+      if (soundAssets[type]) {
+        try {
+          soundAssets[type].currentTime = 0;
+          soundAssets[type].play();
+          return; // Skip fallback synthesis
+        } catch (e) {
+          // Fall through to synthetic generator if blocked
+        }
+      }
+
+      // 2. Fallback: Procedural Synthesis (Offline-Safe Web Audio API)
+      const osc = audioCtx.createOscillator();
+      const gainNode = audioCtx.createGain();
+      osc.connect(gainNode);
+      gainNode.connect(audioCtx.destination);
+
+      const now = audioCtx.currentTime;
+
+      if (type === 'click') {
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(800, now);
+        osc.frequency.exponentialRampToValueAtTime(1200, now + 0.08);
+        gainNode.gain.setValueAtTime(0.05, now);
+        gainNode.gain.linearRampToValueAtTime(0, now + 0.08);
+        osc.start(now);
+        osc.stop(now + 0.08);
+      } else if (type === 'success') {
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(523.25, now); // C5
+        osc.frequency.setValueAtTime(659.25, now + 0.1); // E5
+        osc.frequency.setValueAtTime(783.99, now + 0.2); // G5
+        gainNode.gain.setValueAtTime(0.08, now);
+        gainNode.gain.linearRampToValueAtTime(0, now + 0.4);
+        osc.start(now);
+        osc.stop(now + 0.4);
+      } else if (type === 'reset') {
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(600, now);
+        osc.frequency.exponentialRampToValueAtTime(150, now + 0.3);
+        gainNode.gain.setValueAtTime(0.06, now);
+        gainNode.gain.linearRampToValueAtTime(0, now + 0.3);
+        osc.start(now);
+        osc.stop(now + 0.3);
+      } else if (type === 'draw') {
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(300, now);
+        osc.frequency.linearRampToValueAtTime(350, now + 0.15);
+        gainNode.gain.setValueAtTime(0.02, now);
+        gainNode.gain.linearRampToValueAtTime(0, now + 0.15);
+        osc.start(now);
+        osc.stop(now + 0.15);
+      }
+    }
+
+    // ----------------------------------------------------
+    // OFFLINE-FIRST SMART IMAGE LOADERS
+    // ----------------------------------------------------
+    
+    // 1. Splash Screen Loader (Checks Local disk first, then Online Cloud, then Procedural Mesh)
+    function initSplashBackground() {
+      const splashBg = document.getElementById('splash-bg');
+      const imgLocal = new Image();
+      
+      // Langkah A: Coba memuat dari aset luring lokal terlebih dahulu
+      imgLocal.src = 'assets/images/splash.png';
+      imgLocal.onload = function() {
+        splashBg.style.backgroundImage = `linear-gradient(to bottom, rgba(2, 6, 23, 0.6) 0%, rgba(2, 6, 23, 0.95) 90%), url('assets/images/splash.png')`;
+      };
+      
+      imgLocal.onerror = function() {
+        // Langkah B: Jika luring gagal (file tidak ada), coba ambil gambar dari Blogger (Online)
+        const imgOnline = new Image();
+        imgOnline.src = 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh5ZRf9M7ldzx-YqLFVRciSsa74hw3IkNy2xPGx6Hnvoyipdro5b9_9IzHMMmZCgIeKIesbbxRBafw46VgLPelbkYLQDXTZ0R-Bx7NaO3BhZJ7vtVx6ZCY64HX_NpEMimGS99shKArnQLQTLiYM2daPtFkRri9Yvl3VYT50wmMifgoAN2cxGTFdFj5OhBbH/s1600/Gemini_Generated_Image_hmh980hmh980hmh9.png';
+        
+        imgOnline.onload = function() {
+          splashBg.style.backgroundImage = `linear-gradient(to bottom, rgba(2, 6, 23, 0.6) 0%, rgba(2, 6, 23, 0.95) 90%), url('${imgOnline.src}')`;
+        };
+        
+        imgOnline.onerror = function() {
+          // Langkah C: Jika luring total dan file aset tidak diunduh, gunakan gradasi mesh CSS bawaan (Instant & Cantik)
+          splashBg.style.backgroundImage = `linear-gradient(to bottom, rgba(2, 6, 23, 0.7) 0%, rgba(2, 6, 23, 0.98) 90%), 
+                                            radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.15) 0%, transparent 50%), 
+                                            radial-gradient(circle at 80% 70%, rgba(168, 85, 247, 0.15) 0%, transparent 50%)`;
+        };
+      };
+    }
+
+    // 2. Developer Avatar Fallback Chain
+    function handleDevImageFallback(imgElement) {
+      // Jika assets/images/developer.png gagal dimuat, coba muat dari Blogger online
+      imgElement.onerror = function() {
+        // Jika tautan Blogger online juga gagal (luring total), tampilkan fallback SVG
+        imgElement.style.display = 'none';
+        document.getElementById('dev-avatar-fallback').classList.remove('hidden');
+      };
+      imgElement.src = 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh5ZRf9M7ldzx-YqLFVRciSsa74hw3IkNy2xPGx6Hnvoyipdro5b9_9IzHMMmZCgIeKIesbbxRBafw46VgLPelbkYLQDXTZ0R-Bx7NaO3BhZJ7vtVx6ZCY64HX_NpEMimGS99shKArnQLQTLiYM2daPtFkRri9Yvl3VYT50wmMifgoAN2cxGTFdFj5OhBbH/s1600/Gemini_Generated_Image_hmh980hmh980hmh9.png';
+    }
+
+    // ----------------------------------------------------
+    // TOAST NOTIFICATION SYSTEM
+    // ----------------------------------------------------
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-msg');
+      toastMsg.innerText = message;
+      
+      toast.style.opacity = '1';
+      toast.style.transform = 'translateX(-50%) scale(1)';
+
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateX(-50%) scale(0.9)';
+      }, 2500);
+    }
+
+    // ----------------------------------------------------
+    // THEORY DATA & LOADER
+    // ----------------------------------------------------
+    const theoryData = [
+      {
+        id: 'garis',
+        title: '1. Garis (Line)',
+        subtitle: 'Unsur Dasar Penghubung Ruang',
+        desc: 'Garis merupakan sekumpulan titik yang tersusun memanjang secara berkesinambungan. Dalam rupa Fase F, garis digunakan tidak hanya sebagai batas bentuk (outline), tetapi juga menyampaikan karakter psikologis: garis lurus vertikal memberi kesan kokoh/agung, sedangkan garis lengkung acak menyampaikan kesan dinamis atau tidak stabil.',
+        tips: 'Goreskan pola bergelombang di atas kanvas simulasi untuk melatih pembuatan garis ekspresif.',
+        svg: `<svg viewBox="0 0 200 100" style="width:100%; height:100%; stroke:var(--color-indigo); stroke-width:2; fill:none;"><path d="M10,50 Q50,10 100,50 T190,50" /><path d="M10,80 L190,80" stroke-dasharray="5,5" /><line x1="10" y1="20" x2="190" y2="20" stroke-width="4" /></svg>`
+      },
+      {
+        id: 'bidang',
+        title: '2. Bidang (Shape)',
+        subtitle: 'Pertemuan Garis Menjadi Ruang Dua Dimensi',
+        desc: 'Bidang terbentuk dari jalinan garis yang bertemu di titik ujungnya. Memiliki dimensi panjang dan lebar. Bidang dikelompokkan menjadi bidang geometris (persegi, lingkaran, segitiga) yang bersifat formal, serta bidang organik yang bersifat asimetris dan fleksibel meniru pola alam.',
+        tips: 'Tambahkan beberapa bentuk bidang pada simulasi rupa lalu perhatikan perbedaannya saat diwarnai dengan warna sekunder.',
+        svg: `<svg viewBox="0 0 200 100" style="width:100%; height:100%; fill:rgba(99,102,241,0.2); stroke:var(--color-indigo); stroke-width:2;"><rect x="20" y="20" width="50" height="50" rx="4" /><circle cx="120" cy="45" r="25" /><polygon points="170,20 150,70 190,70" /></svg>`
+      },
+      {
+        id: 'warna',
+        title: '3. Warna (Color)',
+        subtitle: 'Spektrum Estetika Penggugah Rasa',
+        desc: 'Unsur seni rupa paling mencolok. Warna dihasilkan dari pantulan cahaya yang menyentuh indera penglihatan kita. Terdiri dari warna primer (Merah, Kuning, Biru) yang jika dicampurkan menghasilkan jajaran warna sekunder (Hijau, Jingga, Ungu) dan tersusun dalam roda warna (color wheel).',
+        tips: 'Gunakan tombol palet warna aktif di panel simulasi untuk mengubah suasana emosional karya Anda.',
+        svg: `<svg viewBox="0 0 200 100" style="width:100%; height:100%;"><circle cx="60" cy="50" r="30" fill="#ef4444" opacity="0.8"/><circle cx="100" cy="50" r="30" fill="#3b82f6" opacity="0.8"/><circle cx="140" cy="50" r="30" fill="#f59e0b" opacity="0.8"/></svg>`
+      },
+      {
+        id: 'tekstur',
+        title: '4. Tekstur (Texture)',
+        subtitle: 'Karakter Taktil Suatu Permukaan',
+        desc: 'Tekstur mendeskripsikan sifat permukaan suatu objek rupa (kasar, halus, licin, atau kusam). Terbagi menjadi tekstur nyata (rasa rabaan sesuai dengan tampilannya) dan tekstur semu/maya (secara visual tampak kasar namun saat diraba ternyata halus, biasa dibentuk dengan pola arsir teratur).',
+        tips: 'Coba ubah opsi tekstur semu di simulasi ke "Arsir Silang" untuk melihat struktur kedalaman bidang.',
+        svg: `<svg viewBox="0 0 200 100" style="width:100%; height:100%; stroke:var(--color-indigo); stroke-width:1.5;"><line x1="20" y1="20" x2="80" y2="80" /><circle cx="150" cy="50" r="25" fill="none" stroke-dasharray="2,2" /></svg>`
+      },
+      {
+        id: 'gelap-terang',
+        title: '5. Gelap Terang (Value/Chiaroscuro)',
+        subtitle: 'Intensitas Cahaya Pembentuk Dimensi',
+        desc: 'Gelap terang terjadi akibat adanya perbedaan intensitas cahaya yang jatuh pada permukaan objek. Bagian yang terkena cahaya akan terang, sedangkan bagian bayangan akan gelap. Penggunaan gelap terang yang terencana memberikan kesan kedalaman dan dimensi tiga dimensi yang realistis pada media datar.',
+        tips: 'Gunakan slider Gelap Terang di menu simulasi untuk mempraktikkan kontras chiaroscuro.',
+        svg: `<svg viewBox="0 0 200 100" style="width:100%; height:100%;"><defs><radialGradient id="grad1" cx="30%" cy="30%" r="70%"><stop offset="0%" stop-color="#ffffff" /><stop offset="100%" stop-color="#1e1b4b" /></radialGradient></defs><circle cx="100" cy="50" r="35" fill="url(#grad1)" /></svg>`
+      }
+    ];
+
+    function loadTheoryMenu() {
+      const menuContainer = document.getElementById('theory-menu');
+      menuContainer.innerHTML = '';
+      theoryData.forEach((item, index) => {
+        const btn = document.createElement('button');
+        btn.onclick = () => { selectTheory(item.id); playSound('click'); };
+        btn.id = `theory-btn-${item.id}`;
+        btn.className = `list-btn ${index === 0 ? 'active' : ''}`;
+        btn.innerHTML = `
+          <span>${item.title}</span>
+          <svg class="icon-svg" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        `;
+        menuContainer.appendChild(btn);
+      });
+      selectTheory(theoryData[0].id, false);
+    }
+
+    function selectTheory(id, activeSound = true) {
+      if (activeSound) playSound('click');
+      const item = theoryData.find(t => t.id === id);
+      
+      document.querySelectorAll('[id^="theory-btn-"]').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      const activeBtn = document.getElementById(`theory-btn-${id}`);
+      if (activeBtn) activeBtn.classList.add('active');
+
+      const detailContainer = document.getElementById('theory-detail');
+      detailContainer.innerHTML = `
+        <div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 1rem; flex: 1; align-items: center;">
+          <div style="grid-column: span 7; display: flex; flex-direction: column; gap: 0.75rem;">
+            <div>
+              <span style="font-size: 10px; color: var(--color-indigo); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">${item.subtitle}</span>
+              <h3 style="font-size: 1rem; font-weight: 700; color: var(--text-slate-100); margin-top: 0.15rem;">${item.title}</h3>
+            </div>
+            <p style="font-size: 0.75rem; color: var(--text-slate-300); line-height: 1.5;">${item.desc}</p>
+          </div>
+          <div style="grid-column: span 5; height: 160px; background-color: rgba(15,23,42,0.8); border: 1px solid rgba(255,255,255,0.05); border-radius: 0.75rem; padding: 1rem; display: flex; align-items: center; justify-content: center;">
+            ${item.svg}
+          </div>
+        </div>
+        <div style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: space-between;">
+          <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 11px; color: var(--color-amber); font-weight: 600;">
+            <svg class="icon-svg" style="color:var(--color-amber); width:1rem; height:1rem;" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path></svg>
+            <span><b>Eksperimen Tips:</b> ${item.tips}</span>
+          </div>
+          <button onclick="switchTab('simulasi')" class="action-btn" style="padding: 0.4rem 1rem;">
+            Coba di Simulasi
+          </button>
+        </div>
+      `;
+    }
+
+    // ----------------------------------------------------
+    // TAB NAVIGATION SYSTEM
+    // ----------------------------------------------------
+    function switchTab(tabId) {
+      playSound('click');
+      currentTab = tabId;
+
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      const activeTabBtn = document.getElementById(`tab-${tabId}`);
+      if (activeTabBtn) activeTabBtn.classList.add('active');
+
+      document.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.add('hidden');
+      });
+      document.getElementById(`content-${tabId}`).classList.remove('hidden');
+
+      if (tabId === 'simulasi') {
+        setTimeout(resizeCanvas, 100);
+        document.getElementById('status-message').innerText = "Mode Simulasi Aktif. Gunakan mouse/sentuhan di atas kanvas.";
+      } else {
+        document.getElementById('status-message').innerText = `Menampilkan Tab ${tabId.toUpperCase()}`;
+      }
+    }
+
+    function toggleSound() {
+      isSoundOn = !isSoundOn;
+      const soundIcon = document.getElementById('sound-icon');
+      if (isSoundOn) {
+        soundIcon.innerHTML = `
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+        `;
+        soundIcon.style.color = "var(--color-emerald)";
+        showToast('Suara Lab Aktif');
+        playSound('click');
+      } else {
+        soundIcon.innerHTML = `
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+          <line x1="23" y1="9" x2="17" y2="15"></line>
+          <line x1="17" y1="9" x2="23" y2="15"></line>
+        `;
+        soundIcon.style.color = "var(--text-slate-500)";
+        showToast('Suara Lab Dibisukan');
+      }
+    }
+
+    // ----------------------------------------------------
+    // ENGINE SIMULASI RUPA (HTML5 CANVAS)
+    // ----------------------------------------------------
+    function initCanvas() {
+      canvas = document.getElementById('rupa-canvas');
+      ctx = canvas.getContext('2d');
+      resizeCanvas();
+
+      canvas.addEventListener('mousedown', startDrawing);
+      canvas.addEventListener('mousemove', draw);
+      canvas.addEventListener('mouseup', stopDrawing);
+      canvas.addEventListener('mouseleave', stopDrawing);
+
+      // Support touch devices
+      canvas.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        const touch = e.touches[0];
+        const rect = canvas.getBoundingClientRect();
+        startDrawing({
+          clientX: touch.clientX,
+          clientY: touch.clientY,
+          preventDefault: () => {}
+        });
+      });
+      canvas.addEventListener('touchmove', (e) => {
+        e.preventDefault();
+        const touch = e.touches[0];
+        draw({
+          clientX: touch.clientX,
+          clientY: touch.clientY
+        });
+      });
+      canvas.addEventListener('touchend', stopDrawing);
+    }
+
+    function resizeCanvas() {
+      if (!canvas) return;
+      const container = document.getElementById('canvas-container');
+      canvas.width = container.clientWidth;
+      canvas.height = container.clientHeight;
+      drawAll();
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+
+    function startDrawing(e) {
+      const rect = canvas.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      if (selectedTool.startsWith('brush')) {
+        activeDrawingLine = {
+          points: [{ x, y }],
+          color: selectedColor,
+          width: selectedTool === 'brush-solid' ? 6 : (selectedTool === 'brush-wavy' ? 4 : 3),
+          type: selectedTool,
+          opacity: currentGelapTerang / 100
+        };
+        playSound('draw');
+      } else if (selectedTool.startsWith('shape-')) {
+        const shapeType = selectedTool.replace('shape-', '');
+        addShapeAt(x, y, shapeType);
+      }
+    }
+
+    function draw(e) {
+      if (!activeDrawingLine) return;
+      const rect = canvas.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      activeDrawingLine.points.push({ x, y });
+      playSound('draw');
+      drawAll();
+    }
+
+    function stopDrawing() {
+      if (activeDrawingLine) {
+        lines.push(activeDrawingLine);
+        activeDrawingLine = null;
+      }
+    }
+
+    function setTool(toolName) {
+      playSound('click');
+      selectedTool = toolName;
+      document.querySelectorAll('.tool-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      const activeBtn = document.getElementById(`tool-${toolName}`);
+      if (activeBtn) activeBtn.classList.add('active');
+      
+      if (toolName.startsWith('shape-')) {
+        // Automatic friendly spawn at the canvas center for great immediate UX
+        const shapeType = toolName.replace('shape-', '');
+        addShape(shapeType);
+        showToast(`Kuas Bentuk Aktif! Klik/sentuh kanvas untuk stempel ${shapeType.toUpperCase()}`);
+      } else {
+        showToast(`Kuas Aktif: ${toolName.replace('brush-', '').toUpperCase()}`);
+      }
+    }
+
+    function setColor(colorHex) {
+      playSound('click');
+      selectedColor = colorHex;
+      document.querySelectorAll('.color-dot').forEach(dot => {
+        dot.style.borderColor = 'transparent';
+      });
+      event.target.style.borderColor = 'white';
+    }
+
+    function updateSelectedTexture() {
+      playSound('click');
+      currentTexture = document.getElementById('texture-select').value;
+      showToast(`Tekstur Aktif: ${currentTexture.toUpperCase()}`);
+    }
+
+    // Interactive custom coordinates stamping
+    function addShapeAt(x, y, shapeType) {
+      playSound('success');
+      shapes.push({
+        type: shapeType,
+        x,
+        y,
+        size: currentSize,
+        color: selectedColor,
+        texture: currentTexture,
+        opacity: currentGelapTerang / 100
+      });
+      drawAll();
+    }
+
+    function updateGelapTerang(val) {
+      currentGelapTerang = val;
+      document.getElementById('val-gelap-terang').innerText = val + '%';
+      playSound('click');
+    }
+
+    function updateElementSize(val) {
+      currentSize = val;
+      document.getElementById('val-size').innerText = val + 'px';
+    }
+
+    // General purpose central spawning
+    function addShape(shapeType) {
+      const x = canvas.width / 2 + (Math.random() * 80 - 40);
+      const y = canvas.height / 2 + (Math.random() * 80 - 40);
+      
+      shapes.push({
+        type: shapeType,
+        x,
+        y,
+        size: currentSize,
+        color: selectedColor,
+        texture: currentTexture,
+        opacity: currentGelapTerang / 100
+      });
+      drawAll();
+    }
+
+    function clearCanvas() {
+      playSound('reset');
+      shapes = [];
+      lines = [];
+      drawAll();
+      showToast('Kanvas dibersihkan!');
+    }
+
+    function drawAll() {
+      if (!ctx) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      lines.forEach(line => drawLineObject(line));
+      if (activeDrawingLine) {
+        drawLineObject(activeDrawingLine);
+      }
+      shapes.forEach(shape => drawShapeObject(shape));
+    }
+
+    function drawLineObject(line) {
+      if (line.points.length < 2) return;
+      ctx.beginPath();
+      ctx.strokeStyle = line.color;
+      ctx.lineWidth = line.width;
+      ctx.globalAlpha = line.opacity;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+
+      if (line.type === 'brush-dashed') {
+        ctx.setLineDash([10, 10]);
+      } else {
+        ctx.setLineDash([]);
+      }
+
+      if (line.type === 'brush-wavy') {
+        ctx.moveTo(line.points[0].x, line.points[0].y);
+        for (let i = 1; i < line.points.length; i++) {
+          const p1 = line.points[i - 1];
+          const p2 = line.points[i];
+          const midX = (p1.x + p2.x) / 2;
+          const midY = (p1.y + p2.y) / 2;
+          ctx.quadraticCurveTo(p1.x, p1.y + Math.sin(i * 0.5) * 8, midX, midY);
+        }
+      } else {
+        ctx.moveTo(line.points[0].x, line.points[0].y);
+        for (let i = 1; i < line.points.length; i++) {
+          ctx.lineTo(line.points[i].x, line.points[i].y);
+        }
+      }
+      ctx.stroke();
+      ctx.globalAlpha = 1.0;
+      ctx.setLineDash([]);
+    }
+
+    function drawShapeObject(shape) {
+      ctx.save();
+      ctx.globalAlpha = shape.opacity;
+      ctx.fillStyle = shape.color;
+      ctx.strokeStyle = 'rgba(255,255,255,0.4)';
+      ctx.lineWidth = 2;
+
+      ctx.beginPath();
+      if (shape.type === 'square') {
+        ctx.rect(shape.x - shape.size/2, shape.y - shape.size/2, shape.size, shape.size);
+      } else if (shape.type === 'circle') {
+        ctx.arc(shape.x, shape.y, shape.size/2, 0, Math.PI * 2);
+      } else if (shape.type === 'triangle') {
+        ctx.moveTo(shape.x, shape.y - shape.size/2);
+        ctx.lineTo(shape.x - shape.size/2, shape.y + shape.size/2);
+        ctx.lineTo(shape.x + shape.size/2, shape.y + shape.size/2);
+        ctx.closePath();
+      } else if (shape.type === 'star') {
+        drawStarPoints(ctx, shape.x, shape.y, 5, shape.size/2, shape.size/4);
+      }
+
+      ctx.fill();
+      ctx.stroke();
+
+      if (shape.texture !== 'none') {
+        applyTextureOverlay(shape);
+      }
+
+      ctx.restore();
+    }
+
+    function drawStarPoints(context, cx, cy, spikes, outerRadius, innerRadius) {
+      let rot = Math.PI / 2 * 3;
+      let x = cx;
+      let y = cy;
+      let step = Math.PI / spikes;
+
+      context.moveTo(cx, cy - outerRadius);
+      for (let i = 0; i < spikes; i++) {
+        x = cx + Math.cos(rot) * outerRadius;
+        y = cy + Math.sin(rot) * outerRadius;
+        context.lineTo(x, y);
+        rot += step;
+
+        x = cx + Math.cos(rot) * innerRadius;
+        y = cy + Math.sin(rot) * innerRadius;
+        context.lineTo(x, y);
+        rot += step;
+      }
+      context.lineTo(cx, cy - outerRadius);
+      context.closePath();
+    }
+
+    function applyTextureOverlay(shape) {
+      ctx.save();
+      ctx.beginPath();
+      if (shape.type === 'square') {
+        ctx.rect(shape.x - shape.size/2, shape.y - shape.size/2, shape.size, shape.size);
+      } else if (shape.type === 'circle') {
+        ctx.arc(shape.x, shape.y, shape.size/2, 0, Math.PI * 2);
+      } else if (shape.type === 'triangle') {
+        ctx.moveTo(shape.x, shape.y - shape.size/2);
+        ctx.lineTo(shape.x - shape.size/2, shape.y + shape.size/2);
+        ctx.lineTo(shape.x + shape.size/2, shape.y + shape.size/2);
+        ctx.closePath();
+      } else if (shape.type === 'star') {
+        drawStarPoints(ctx, shape.x, shape.y, 5, shape.size/2, shape.size/4);
+      }
+      ctx.clip();
+
+      ctx.strokeStyle = 'rgba(255,255,255,0.6)';
+      ctx.lineWidth = 1.5;
+
+      const size = shape.size;
+      const xStart = shape.x - size/2;
+      const xEnd = shape.x + size/2;
+      const yStart = shape.y - size/2;
+      const yEnd = shape.y + size/2;
+
+      if (shape.texture === 'hatching') {
+        for (let i = -size; i < size; i += 12) {
+          ctx.beginPath();
+          ctx.moveTo(xStart + i, yStart);
+          ctx.lineTo(xStart + i + size, yEnd);
+          ctx.stroke();
+        }
+      } else if (shape.texture === 'cross-hatching') {
+        for (let i = -size; i < size; i += 12) {
+          ctx.beginPath();
+          ctx.moveTo(xStart + i, yStart);
+          ctx.lineTo(xStart + i + size, yEnd);
+          ctx.stroke();
+          ctx.beginPath();
+          ctx.moveTo(xStart + i + size, yStart);
+          ctx.lineTo(xStart + i, yEnd);
+          ctx.stroke();
+        }
+      } else if (shape.texture === 'dots') {
+        ctx.fillStyle = 'rgba(255,255,255,0.7)';
+        for (let dx = xStart + 5; dx < xEnd; dx += 10) {
+          for (let dy = yStart + 5; dy < yEnd; dy += 10) {
+            ctx.beginPath();
+            ctx.arc(dx, dy, 1.5, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+      } else if (shape.texture === 'grid') {
+        for (let dx = xStart; dx < xEnd; dx += 15) {
+          ctx.beginPath();
+          ctx.moveTo(dx, yStart);
+          ctx.lineTo(dx, yEnd);
+          ctx.stroke();
+        }
+        for (let dy = yStart; dy < yEnd; dy += 15) {
+          ctx.beginPath();
+          ctx.moveTo(xStart, dy);
+          ctx.lineTo(xEnd, dy);
+          ctx.stroke();
+        }
+      }
+      ctx.restore();
+    }
+
+    function loadCompositionPreset(type) {
+      playSound('success');
+      shapes = [];
+      lines = [];
+      const cx = canvas.width / 2;
+      const cy = canvas.height / 2;
+
+      if (type === 'statis') {
+        shapes.push({
+          type: 'square',
+          x: cx,
+          y: cy + 30,
+          size: 110,
+          color: '#3b82f6',
+          texture: 'grid',
+          opacity: 0.9
+        });
+        shapes.push({
+          type: 'circle',
+          x: cx - 120,
+          y: cy + 30,
+          size: 80,
+          color: '#ef4444',
+          texture: 'none',
+          opacity: 0.8
+        });
+        shapes.push({
+          type: 'circle',
+          x: cx + 120,
+          y: cy + 30,
+          size: 80,
+          color: '#ef4444',
+          texture: 'none',
+          opacity: 0.8
+        });
+        lines.push({
+          points: [{ x: cx - 200, y: cy + 75 }, { x: cx + 200, y: cy + 75 }],
+          color: '#ffffff',
+          width: 4,
+          type: 'brush-solid',
+          opacity: 0.8
+        });
+        showToast('Tantangan Komposisi Statis Dimuat');
+      } else if (type === 'dinamis') {
+        shapes.push({
+          type: 'triangle',
+          x: cx - 100,
+          y: cy + 40,
+          size: 90,
+          color: '#f59e0b',
+          texture: 'hatching',
+          opacity: 0.95
+        });
+        shapes.push({
+          type: 'star',
+          x: cx + 60,
+          y: cy - 40,
+          size: 130,
+          color: '#8b5cf6',
+          texture: 'none',
+          opacity: 0.7
+        });
+        shapes.push({
+          type: 'circle',
+          x: cx + 140,
+          y: cy + 50,
+          size: 50,
+          color: '#ec4899',
+          texture: 'dots',
+          opacity: 0.9
+        });
+        lines.push({
+          points: [
+            { x: cx - 220, y: cy + 80 }, 
+            { x: cx - 100, y: cy - 20 }, 
+            { x: cx + 50, y: cy + 90 }, 
+            { x: cx + 220, y: cy - 10 }
+          ],
+          color: '#10b981',
+          width: 3,
+          type: 'brush-wavy',
+          opacity: 0.8
+        });
+        showToast('Tantangan Komposisi Dinamis Dimuat');
+      }
+      drawAll();
+    }
+
+    // ----------------------------------------------------
+    // EVALUASI LKPD SUBMISSION SYSTEM
+    // ----------------------------------------------------
+    function submitLKPD() {
+      const q1 = document.getElementById('q1-input').value.trim();
+      const q2 = document.getElementById('q2-input').value.trim();
+      
+      const q3Opts = document.getElementsByName('q3-opt');
+      let q3Answer = '';
+      for (let opt of q3Opts) {
+        if (opt.checked) {
+          q3Answer = opt.value;
+          break;
+        }
+      }
+
+      if (!q1 || !q2 || !q3Answer) {
+        playSound('reset');
+        showToast('Harap isi semua jawaban LKPD!');
+        return;
+      }
+
+      let score = 0;
+      if (q3Answer === 'A') {
+        score += 40;
+      } else {
+        score += 10;
+      }
+
+      if (q1.length > 25) score += 30;
+      else if (q1.length > 5) score += 15;
+
+      if (q2.length > 25) score += 30;
+      else if (q2.length > 5) score += 15;
+
+      score = Math.min(score, 100);
+
+      document.getElementById('score-text').innerText = score;
+      const scoreContainer = document.getElementById('grade-container');
+      const submitStatus = document.getElementById('submit-status');
+      const passingStatus = document.getElementById('passing-status');
+      const teacherNotes = document.getElementById('teacher-notes');
+
+      if (score >= 75) {
+        playSound('success');
+        scoreContainer.className = "grade-circle success";
+        document.getElementById('score-text').style.color = "var(--color-emerald)";
+        submitStatus.style.color = "var(--color-emerald)";
+        submitStatus.innerHTML = `Sudah Diserahkan`;
+        passingStatus.style.color = "var(--color-emerald)";
+        passingStatus.innerText = "LULUS (SANGAT BAIK)";
+        teacherNotes.innerText = "Luar biasa! Analisis Anda mengenai keterpaduan unsur rupa (Chiaroscuro dan Tekstur semu) sangat tajam dan relevan dengan kompetensi Fase F.";
+      } else {
+        playSound('reset');
+        scoreContainer.className = "grade-circle warning";
+        document.getElementById('score-text').style.color = "var(--color-amber)";
+        submitStatus.style.color = "var(--color-amber)";
+        submitStatus.innerHTML = `Sudah Diserahkan`;
+        passingStatus.style.color = "var(--color-amber)";
+        passingStatus.innerText = "PERLU PERBAIKAN";
+        teacherNotes.innerText = "Jawaban Anda sudah baik namun kurang mendalam pada keterkaitan antarsimulasi. Baca kembali prosedur kerja dan coba lagi untuk skor maksimal.";
+      }
+
+      showToast('Jawaban LKPD Berhasil Dikirim!');
+    }
+
+    // ----------------------------------------------------
+    // GLOBAL RESET FUNCTION
+    // ----------------------------------------------------
+    function globalReset() {
+      playSound('reset');
+      
+      shapes = [];
+      lines = [];
+      selectedColor = '#ef4444';
+      selectedTool = 'brush-solid';
+      currentTexture = 'none';
+      currentGelapTerang = 100;
+      currentSize = 100;
+      
+      document.getElementById('gelap-terang').value = 100;
+      document.getElementById('val-gelap-terang').innerText = '100%';
+      document.getElementById('element-size').value = 100;
+      document.getElementById('val-size').innerText = '100px';
+      document.getElementById('texture-select').value = 'none';
+
+      document.getElementById('q1-input').value = '';
+      document.getElementById('q2-input').value = '';
+      const q3Opts = document.getElementsByName('q3-opt');
+      for (let opt of q3Opts) opt.checked = false;
+
+      document.getElementById('score-text').innerText = "0";
+      document.getElementById('score-text').style.color = "var(--text-slate-400)";
+      document.getElementById('grade-container').className = "grade-circle";
+      
+      const submitStatus = document.getElementById('submit-status');
+      submitStatus.style.color = "var(--color-rose)";
+      submitStatus.innerHTML = `Belum Diserahkan`;
+      
+      document.getElementById('passing-status').style.color = "var(--text-slate-400)";
+      document.getElementById('passing-status').innerText = "-";
+      document.getElementById('teacher-notes').innerText = "Sistem akan menilai ketepatan analisis dan pilihan ganda Anda. Lakukan eksperimen simulasi terlebih dahulu sebelum menjawab.";
+
+      drawAll();
+      showToast('Seluruh Lab Berhasil Direset!');
+    }
+
+    // Dynamic loading screen connecting local assets
+    function simulateLoading() {
+      let progress = 0;
+      const loadingBar = document.getElementById('loading-bar');
+      const loadingText = document.getElementById('loading-text');
+      const loadingContainer = document.getElementById('loading-container');
+      const startBtn = document.getElementById('start-btn');
+      
+      const interval = setInterval(() => {
+        progress += Math.floor(Math.random() * 15) + 8;
+        if (progress >= 100) {
+          progress = 100;
+          clearInterval(interval);
+          
+          setTimeout(() => {
+            loadingContainer.classList.add('hidden');
+            startBtn.classList.remove('hidden');
+          }, 300);
+        }
+        loadingBar.style.width = `${progress}%`;
+        loadingText.innerText = `Menginisialisasi Sistem... ${progress}%`;
+      }, 70);
+    }
+
+    function startApp() {
+      initAudio();
+      if (audioCtx && audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      
+      playSound('success');
+      
+      const splash = document.getElementById('splash-screen');
+      splash.style.opacity = '0';
+      splash.style.transform = 'scale(1.05)';
+      splash.style.pointerEvents = 'none';
+      
+      showToast('Lab Maya Siap Digunakan!');
+      
+      setTimeout(() => {
+        splash.remove();
+      }, 600);
+    }
+
+    // On Load Initialization
+    window.onload = function() {
+      initSplashBackground();  // Pemuatan taktis untuk splash screen (Offline-First)
+      preloadSounds();
+      loadTheoryMenu();
+      initCanvas();
+      simulateLoading();
+      
+      setTimeout(resizeCanvas, 300);
+    }
+  </script>
+</body>
+</html>
